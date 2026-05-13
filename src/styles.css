@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: #1f2520;
+  background: #eaf4ff;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  border: 0;
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(255, 224, 168, 0.8), transparent 24%),
+    linear-gradient(145deg, #dcefff 0%, #f8efe1 48%, #dceee5 100%);
+  transition: background 250ms ease, color 250ms ease;
+}
+
+.app.dark {
+  color: #f6efe5;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(86, 119, 255, 0.25), transparent 24%),
+    linear-gradient(145deg, #101318 0%, #1a1622 48%, #0c1f22 100%);
+}
+
+.teaching-page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.teacher-presence {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.teacher-mark,
+.icon-button {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  color: #143a31;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 12px 34px rgba(42, 73, 92, 0.16);
+}
+
+.dark .teacher-mark,
+.dark .icon-button {
+  color: #f6efe5;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: #63756f;
+  font-size: 0.76rem;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.dark .eyebrow {
+  color: #aab9c4;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.55rem, 3vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.notebook,
+.attempt-lens,
+.proof-reel,
+.memory-card {
+  border: 1px solid rgba(21, 36, 33, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 24px 70px rgba(42, 73, 92, 0.15);
+  backdrop-filter: blur(22px);
+}
+
+.dark .notebook,
+.dark .attempt-lens,
+.dark .proof-reel,
+.dark .memory-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 18, 25, 0.72);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.notebook {
+  overflow: hidden;
+}
+
+.model-line {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 16px 18px 0;
+  color: #476059;
+  font-size: 0.94rem;
+}
+
+.dark .model-line {
+  color: #c8d8d4;
+}
+
+.model-letter {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #1d372f;
+  font-size: 3.2rem;
+  font-style: italic;
+  line-height: 0.9;
+}
+
+.dark .model-letter {
+  color: #f2ddbd;
+}
+
+canvas {
+  width: 100%;
+  display: block;
+  aspect-ratio: 860 / 520;
+  touch-action: none;
+}
+
+.action-dock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px;
+}
+
+.action-dock button,
+.text-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border-radius: 8px;
+  color: #143a31;
+  background: #f3c86f;
+  font-weight: 760;
+}
+
+.action-dock button:nth-child(2) {
+  background: #9ed9d0;
+}
+
+.action-dock button:nth-child(3),
+.text-button {
+  background: rgba(20, 58, 49, 0.09);
+}
+
+.dark .action-dock button,
+.dark .text-button {
+  color: #f7ead8;
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.insight-rail {
+  display: grid;
+  gap: 14px;
+}
+
+.attempt-lens,
+.proof-reel,
+.memory-card {
+  padding: 18px;
+}
+
+.attempt-lens {
+  border-color: rgba(237, 172, 76, 0.35);
+}
+
+.proof-reel {
+  border-color: rgba(80, 160, 150, 0.35);
+}
+
+.attempt-lens h2,
+.proof-reel h2,
+.memory-card h2 {
+  margin-bottom: 9px;
+  font-size: 1.05rem;
+  line-height: 1.14;
+  letter-spacing: 0;
+}
+
+.attempt-lens p,
+.proof-reel p,
+.memory-card p {
+  color: #4c5d58;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.dark .attempt-lens p,
+.dark .proof-reel p,
+.dark .memory-card p {
+  color: #c7d2d1;
+}
+
+.next-step {
+  padding-top: 10px;
+  border-top: 1px solid rgba(31, 37, 32, 0.09);
+}
+
+.pill {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(158, 217, 208, 0.34);
+  color: #173f35;
+  font-size: 0.82rem;
+  font-weight: 760;
+}
+
+.dark .pill {
+  color: #eaf7f4;
+  background: rgba(158, 217, 208, 0.18);
+}
+
+@media (max-width: 900px) {
+  .app {
+    padding: 14px;
+  }
+
+  .lesson-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teacher-presence {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .icon-button {
+    grid-column: 1 / -1;
+    justify-self: end;
+    width: 40px;
+    height: 40px;
+  }
+}
