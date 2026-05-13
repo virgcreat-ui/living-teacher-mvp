@@ -283,13 +283,24 @@ function AttemptLens({
 
 function ProofReel({ actions, attempts }: { actions: TeacherAction[]; attempts: number }) {
   const proof = actions.find((action): action is Extract<TeacherAction, { type: "showParentProof" }> => action.type === "showParentProof");
+  const rememberedProof: ParentProofNote | null =
+    attempts > 0
+      ? {
+          title: "Remembered proof",
+          summary:
+            "Practiced small a. Noticed zigzag lines where a round body is needed.",
+          nextFocus: "Round body first, then tiny tail.",
+        }
+      : null;
+  const note = proof?.note ?? rememberedProof;
+
   return (
     <section className="proof-reel">
       <p className="eyebrow">Parent proof</p>
-      <h2>{proof?.note.title ?? "No proof yet"}</h2>
-      <p>{proof?.note.summary ?? "The proof reel appears only after the teacher has evidence."}</p>
+      <h2>{note?.title ?? "No proof yet"}</h2>
+      <p>{note?.summary ?? "The proof reel appears only after the teacher has evidence."}</p>
       <p className="next-step">
-        <strong>Next tiny step:</strong> {proof?.note.nextFocus ?? "Make one gentle attempt."}
+        <strong>Next tiny step:</strong> {note?.nextFocus ?? "Make one gentle attempt."}
       </p>
       <span className="pill">{attempts} misconception event(s)</span>
     </section>
