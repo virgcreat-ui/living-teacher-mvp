@@ -232,10 +232,10 @@ function App() {
               }}
             />
             <div className="action-dock">
-              <button onClick={checkAttempt}>
+              <button data-action="check-attempt" onClick={checkAttempt}>
                 <Sparkles size={17} /> Let teacher look
               </button>
-              <button onClick={rememberZ}>Simulate z for a</button>
+              <button data-action="simulate-z" onClick={rememberZ}>Simulate z for a</button>
               <button onClick={clearPage}>
                 <RotateCcw size={17} /> Clear
               </button>
@@ -245,7 +245,7 @@ function App() {
           <aside className="insight-rail">
             <AttemptLens actions={actions} observedAs={observedAs} />
             <ProofReel actions={actions} attempts={profile.misconceptions["a:z"]?.attempts ?? 0} />
-            <section className="memory-card">
+            <section className="memory-card" data-testid="learning-ledger">
               <p className="eyebrow">Learning ledger</p>
               <h2>{profile.misconceptions["a:z"] ? "a:z remembered" : "No misconception yet"}</h2>
               <p>
@@ -295,7 +295,7 @@ function ProofReel({ actions, attempts }: { actions: TeacherAction[]; attempts: 
   const note = proof?.note ?? rememberedProof;
 
   return (
-    <section className="proof-reel">
+    <section className="proof-reel" data-testid="parent-proof">
       <p className="eyebrow">Parent proof</p>
       <h2>{note?.title ?? "No proof yet"}</h2>
       <p>{note?.summary ?? "The proof reel appears only after the teacher has evidence."}</p>
